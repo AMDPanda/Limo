@@ -1,6 +1,5 @@
 # Python libs
 from stringprep import in_table_c22
-from traceback import print_stack
 import rclpy
 from rclpy.node import Node
 from rclpy import qos
@@ -33,7 +32,7 @@ class ObjectDetector(Node):
         super().__init__('image_projection_3')
         self.bridge = CvBridge()
         self.id = 0
-        self.mapflag = True
+        self.mapflag = False
         self.potholes_rviz = MarkerArray()
 
         self.camera_info_sub = self.create_subscription(CameraInfo, '/limo/depth_camera_link/camera_info',
@@ -42,7 +41,7 @@ class ObjectDetector(Node):
         
         # self.object_location_pub = self.create_publisher(PoseStamped, '/limo/object_location', 10)
 
-        self.pothole_location = self.create_publisher(MarkerArray, '/limo/pothole_location', 15)
+        self.pothole_location = self.create_publisher(MarkerArray, '/limo/pothole_location', 10)
         self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/image_raw', 
                                                   self.image_color_callback, qos_profile=qos.qos_profile_sensor_data)
         
@@ -98,6 +97,8 @@ class ObjectDetector(Node):
                 print('No pink object detected.')
                 return
 
+            cv2.drawContours(image_color, contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
+            cv2.imshow('Potholes_pink', image_color)
             cv2.waitKey(1)
             self.get_location(contours,data)
         else:
@@ -124,8 +125,7 @@ class ObjectDetector(Node):
                 approx = cv2.approxPolyDP(contour, epsilon, True)
                         # Assuming potholes are roughly circular, we might expect a higher number of approximation points
                 # if len(approx) < 3:
-                    # continue
-                # compare the two diagno(potholes close to similar diagnogal len)
+                #     continue
                 x, y, w, h = cv2.boundingRect(contour)
                 if 4>np.abs(x-w)/np.abs(y-h)>0.25 :
                     new_contours.append(contour)
@@ -152,10 +152,8 @@ class ObjectDetector(Node):
             # Calculate contour area and ignore small areas
             # if cv2.contourArea(contour) < 10:  # The area threshold will need to be adjusted
             #     continue
-            x,y,h,w = cv2.boundingRect(contour)
 
-            # calculate moments of the binar
-            # y image
+            # calculate moments of the binary image
             M = cv2.moments(contour)
 
             if M["m00"] == 0:
@@ -175,14 +173,7 @@ class ObjectDetector(Node):
                  depth_y = image_depth.shape[0]-1
 
             depth_value = image_depth[depth_y,depth_x] # you might need to do some boundary checking first!
-            area_scaled = area*depth_value**2
 
-            print('area_scaled',area_scaled) 
-
-            if depth_value < 0.15 or depth_value > 0.8:
-                continue 
-            cv2.drawContours(image_color, contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
-            cv2.imshow('Potholes_pink', image_color)
             # print('image coords: ', image_coords)
             # print('depth coords: ', depth_coords)
             # print('depth value: ', depth_value)
@@ -207,6 +198,7 @@ class ObjectDetector(Node):
 
             # print out the coordinates in the odom frame
             try:
+
                 transform = self.get_tf_transform('map', 'depth_link')
                 p_camera = do_transform_pose(object_location.pose, transform)
             except Exception as e:
@@ -214,7 +206,7 @@ class ObjectDetector(Node):
                 return
             p_exist = self.potholes_rviz.markers.copy()
             for m in p_exist:
-                if np.abs(p_camera.position.x - m.pose.position.x)< 0.17 and np.abs(p_camera.position.y - m.pose.position.y)< 0.15:
+                if np.abs(p_camera.position.x - m.pose.position.x)< 0.15 and np.abs(p_camera.position.y - m.pose.position.y)< 0.15:
                     print('repeated')
                     return
                 
@@ -222,7 +214,7 @@ class ObjectDetector(Node):
             pothole_marker = Marker()
             pothole_marker.header.frame_id = "map"  # Use the correct frame_id here
             pothole_marker.header.stamp = self.get_clock().now().to_msg()
-            pothole_marker.ns = str(area_scaled)
+            pothole_marker.ns = "potholes"
             pothole_marker.id = self.id
             pothole_marker.type = Marker.SPHERE  # Use SPHERE_LIST for multiple points
             pothole_marker.action = 0
@@ -244,8 +236,7 @@ class ObjectDetector(Node):
             self.id += 1
             print('odom coords: ', p_camera.position)
         self.pothole_location.publish(self.potholes_rviz)
-        cv2.waitKey(1)
-    
+
             # if self.visualisation:
 
             #     # draw circles

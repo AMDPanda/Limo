@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'example_nav_to_pose = assignment_template.example_nav_to_pose:main',
+            'report = assignment_template.report:main',
             'object_detector = assignment_template.object_detector:main',
         ],
     },

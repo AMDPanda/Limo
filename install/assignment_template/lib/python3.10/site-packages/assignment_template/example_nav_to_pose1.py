@@ -218,7 +218,19 @@ class CostmapCallback(Node):
 
         # Publish the Twist message to control the robot's velocity
         velocity_publisher.publish(twist)
+class TFListener(Node):
+    def __init__(self):
+        super().__init__('tf_listener')
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
+    def get_tf_transform(self, target_frame, source_frame):
+        try:
+            transform = self.tf_buffer.lookup_transform(target_frame, source_frame, rclpy.time.Time())
+            return transform
+        except Exception as e:
+            self.get_logger().warning(f"Failed to lookup transform: {str(e)}")
+            return None
 def pose_from_xytheta(x, y, theta):
         # negative theta: turn clockwise
         pose = Pose()
@@ -230,24 +242,38 @@ def pose_from_xytheta(x, y, theta):
 def main():
 
     rclpy.init()
-    print("start")
-    navigator = BasicNavigator()
-    CostmapCallback()
-    navi = Navigation()
-    
-    pose = navi.get_pos()
-    if pose == None:
-        time.sleep(0.5)
-        pose = [0.0,0.0]
+    tf_listener = TFListener()
+    while rclpy.ok():
+        navi = Navigation()
+        transform = tf_listener.get_tf_transform('map', 'base_link')
+        print("start")
+        if transform:
+            
+            navigator = BasicNavigator()
+            pose = []
+            pose[0] = transform.transform.translation.x # Get the location of the robot
+            pose[1] = transform.transform.translation.y
+            print(pose)
+            waypoints = navi.path_planning(pose)
+            rclpy.spin_once(tf_listener)
+        tf_listener.destroy_node()
+        rclpy.shutdown()
+    # navigator = BasicNavigator()
+    # CostmapCallback()
+    # navi = Navigation()
+    # pose = navi.get_pos()
+    # if pose == None:
+    #     time.sleep(0.5)
+    #     pose = [0.0,0.0]
     # Set our demo's initial pose (0,0,0)
-    initial_pose = PoseStamped()
-    initial_pose.header.frame_id = 'map'
-    initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-    initial_pose.pose = pose_from_xytheta(pose[0], pose[1], 0.0)
-    navigator.setInitialPose(initial_pose)
-    pos_init = [initial_pose.pose.position.x,initial_pose.pose.position.y,0.0]
+    # initial_pose = PoseStamped()
+    # initial_pose.header.frame_id = 'map'
+    # initial_pose.header.stamp = navigator.get_clock().now().to_msg()
+    # initial_pose.pose = pose_from_xytheta(pose[0], pose[1], 0.0)
+    # navigator.setInitialPose(initial_pose)
+    # pos_init = [initial_pose.pose.position.x,initial_pose.pose.position.x,0.0]
 
-    waypoints = navi.path_planning(pos_init)
+    # waypoints = navi.path_planning(pos_init)
     # Wait for navigation to fully activate, since autostarting nav2s
     navigator.waitUntilNav2Active()
     navi.navigate(waypoints)

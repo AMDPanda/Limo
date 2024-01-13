@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating assignment_template.egg-info
+writing assignment_template.egg-info/PKG-INFO
+writing dependency_links to assignment_template.egg-info/dependency_links.txt
+writing entry points to assignment_template.egg-info/entry_points.txt
+writing requirements to assignment_template.egg-info/requires.txt
+writing top-level names to assignment_template.egg-info/top_level.txt
+writing manifest file 'assignment_template.egg-info/SOURCES.txt'
+reading manifest file 'assignment_template.egg-info/SOURCES.txt'
+writing manifest file 'assignment_template.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment-template.egg-link (link to .)
+Installing example_nav_to_pose script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+Installing object_detector script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+
+Installed /home/amd/src/ros2_ws/src/Limo/build/assignment_template
+running install_data
+creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/share/ament_index
+creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/share/ament_index/resource_index
+creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/share/ament_index/resource_index/packages
+copying resource/assignment_template -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/share/ament_index/resource_index/packages
+copying package.xml -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/share/assignment_template

@@ -1,0 +1,37 @@
+running develop
+Removing /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment-template.egg-link (link to .)
+running egg_info
+writing ../build/assignment_template/assignment_template.egg-info/PKG-INFO
+writing dependency_links to ../build/assignment_template/assignment_template.egg-info/dependency_links.txt
+writing entry points to ../build/assignment_template/assignment_template.egg-info/entry_points.txt
+writing requirements to ../build/assignment_template/assignment_template.egg-info/requires.txt
+writing top-level names to ../build/assignment_template/assignment_template.egg-info/top_level.txt
+reading manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+writing manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build
+creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib
+creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+copying assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+copying assignment_template/__init__.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+copying assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+copying assignment_template/example_nav_to_pose1.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+running install
+running install_lib
+creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/__init__.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/example_nav_to_pose1.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py to example_nav_to_pose.cpython-310.pyc
+byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/object_detector.py to object_detector.cpython-310.pyc
+byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose1.py to example_nav_to_pose1.cpython-310.pyc
+running install_data
+running install_egg_info
+Copying ../build/assignment_template/assignment_template.egg-info to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info
+running install_scripts
+Installing example_nav_to_pose script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+Installing example_nav_to_pose1 = assignment_template.example_nav_to_pose1:mainobject_detector script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+writing list of installed files to '/home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log'

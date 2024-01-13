@@ -1,0 +1,47 @@
+[0.535s] Invoking command in '/home/amd/src/ros2_ws/src/Limo/build/assignment_template': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build
+[0.699s] running develop
+[0.699s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.699s]   warnings.warn(
+[0.700s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.700s]   warnings.warn(
+[0.818s] Removing /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment-template.egg-link (link to .)
+[0.839s] Invoked command in '/home/amd/src/ros2_ws/src/Limo/build/assignment_template' returned '0': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build
+[0.840s] Invoking command in '/home/amd/src/ros2_ws/src/Limo/assignment_template': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/assignment_template build --build-base /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build install --record /home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log --single-version-externally-managed
+[0.998s] running egg_info
+[0.999s] writing ../build/assignment_template/assignment_template.egg-info/PKG-INFO
+[0.999s] writing dependency_links to ../build/assignment_template/assignment_template.egg-info/dependency_links.txt
+[0.999s] writing entry points to ../build/assignment_template/assignment_template.egg-info/entry_points.txt
+[0.999s] writing requirements to ../build/assignment_template/assignment_template.egg-info/requires.txt
+[0.999s] writing top-level names to ../build/assignment_template/assignment_template.egg-info/top_level.txt
+[1.000s] reading manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+[1.010s] writing manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+[1.010s] running build
+[1.010s] running build_py
+[1.010s] creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build
+[1.010s] creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib
+[1.010s] creating /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[1.010s] copying assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[1.010s] copying assignment_template/__init__.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[1.010s] copying assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[1.011s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.011s]   warnings.warn(
+[1.011s] copying assignment_template/example_nav_to_pose1.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[1.011s] running install
+[1.011s] running install_lib
+[1.011s] creating /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[1.011s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[1.011s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/__init__.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[1.011s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[1.011s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/example_nav_to_pose1.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[1.012s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py to example_nav_to_pose.cpython-310.pyc
+[1.013s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__init__.py to __init__.cpython-310.pyc
+[1.013s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/object_detector.py to object_detector.cpython-310.pyc
+[1.014s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose1.py to example_nav_to_pose1.cpython-310.pyc
+[1.016s] running install_data
+[1.016s] running install_egg_info
+[1.018s] Copying ../build/assignment_template/assignment_template.egg-info to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info
+[1.018s] running install_scripts
+[1.035s] Installing example_nav_to_pose script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+[1.036s] Installing example_nav_to_pose1 = assignment_template.example_nav_to_pose1:mainobject_detector script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+[1.036s] writing list of installed files to '/home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log'
+[1.054s] Invoked command in '/home/amd/src/ros2_ws/src/Limo/assignment_template' returned '0': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/assignment_template build --build-base /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build install --record /home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log --single-version-externally-managed
