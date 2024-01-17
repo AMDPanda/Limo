@@ -35,7 +35,7 @@ class potholes_report(Node):
             print("coordinate",x,y)
             x_,y_ = self.real_to_image(x,y)
             print('new coor',x_,y_)
-            size  = float(marker.ns)/150 * 10 
+            size  = float(marker.ns)/200 * 10 
             cv2.circle(self.map, (int(x_),int( y_)), int(size), (255,255,0))
         text = "NUMBER of POTHOLES:"+ str(len(msg.markers))
         cv2.putText(self.map, str(text), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)

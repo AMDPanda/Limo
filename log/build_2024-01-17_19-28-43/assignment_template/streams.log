@@ -1,0 +1,39 @@
+[0.379s] Invoking command in '/home/amd/src/ros2_ws/src/Limo/assignment_template': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/assignment_template build --build-base /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build install --record /home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log --single-version-externally-managed
+[0.508s] running egg_info
+[0.509s] writing ../build/assignment_template/assignment_template.egg-info/PKG-INFO
+[0.509s] writing dependency_links to ../build/assignment_template/assignment_template.egg-info/dependency_links.txt
+[0.509s] writing entry points to ../build/assignment_template/assignment_template.egg-info/entry_points.txt
+[0.509s] writing requirements to ../build/assignment_template/assignment_template.egg-info/requires.txt
+[0.509s] writing top-level names to ../build/assignment_template/assignment_template.egg-info/top_level.txt
+[0.510s] reading manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+[0.510s] writing manifest file '../build/assignment_template/assignment_template.egg-info/SOURCES.txt'
+[0.510s] running build
+[0.510s] running build_py
+[0.510s] copying assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[0.511s] copying assignment_template/report.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[0.511s] copying assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template
+[0.511s] running install
+[0.511s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.511s]   warnings.warn(
+[0.511s] running install_lib
+[0.511s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/example_nav_to_pose.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[0.511s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/report.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[0.511s] copying /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build/lib/assignment_template/object_detector.py -> /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template
+[0.512s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py to example_nav_to_pose.cpython-310.pyc
+[0.512s]   File "/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py", line 189
+[0.512s]     vicinity_radius = 0.8z  # Define the radius (adjust as needed)
+[0.512s]                         ^
+[0.512s] SyntaxError: invalid decimal literal
+[0.512s] 
+[0.512s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/report.py to report.cpython-310.pyc
+[0.513s] byte-compiling /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/object_detector.py to object_detector.cpython-310.pyc
+[0.514s] running install_data
+[0.514s] running install_egg_info
+[0.515s] removing '/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info' (and everything under it)
+[0.515s] Copying ../build/assignment_template/assignment_template.egg-info to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info
+[0.515s] running install_scripts
+[0.528s] Installing example_nav_to_pose script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+[0.528s] Installing object_detector script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+[0.528s] Installing report script to /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template
+[0.528s] writing list of installed files to '/home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log'
+[0.544s] Invoked command in '/home/amd/src/ros2_ws/src/Limo/assignment_template' returned '0': PYTHONPATH=/home/amd/src/ros2_ws/src/Limo/build/assignment_template/prefix_override:/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/assignment_template build --build-base /home/amd/src/ros2_ws/src/Limo/build/assignment_template/build install --record /home/amd/src/ros2_ws/src/Limo/build/assignment_template/install.log --single-version-externally-managed

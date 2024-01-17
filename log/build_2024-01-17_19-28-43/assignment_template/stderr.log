@@ -1,0 +1,7 @@
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+  File "/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py", line 189
+    vicinity_radius = 0.8z  # Define the radius (adjust as needed)
+                        ^
+SyntaxError: invalid decimal literal
+

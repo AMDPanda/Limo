@@ -40,7 +40,7 @@ To install and run this project, follow these steps:
 6. In a new Terminal, Launch Rviz((it could display the lower rate simulation by replacing 20e by 5) add the MarkerArray display topic:
     ```bash
     ros2 launch limo_navigation limo_navigation.launch.py use_sim_time:=true map:=src/Limo/assignment_template/maps/potholes_20mm.yaml params_file:=src/Limo/assignment_template/params/nav2_params.yaml
-7. In a new Terminal, run report(map_flag= True if world = pothole_simple, map_flag = False if world = pothole)
+7. In a new Terminal, run report(map_flag= True if world = pothole_simple, map_flag = False if world = pothole). Remember to check the path of the image, or it may return empty graph
    ```bash
    ros2 run assignment_template report
 8. In a new Terminal, run object_detector(map_flag= True if world = pothole_simple, map_flag = False if world = pothole)

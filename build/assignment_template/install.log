@@ -1,8 +1,10 @@
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose.py
+/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/report.py
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__init__.py
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/object_detector.py
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/example_nav_to_pose1.py
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__pycache__/example_nav_to_pose.cpython-310.pyc
+/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__pycache__/report.cpython-310.pyc
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__pycache__/__init__.cpython-310.pyc
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__pycache__/object_detector.cpython-310.pyc
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template/__pycache__/example_nav_to_pose1.cpython-310.pyc
@@ -16,4 +18,5 @@
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info/zip-safe
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/python3.10/site-packages/assignment_template-0.0.0-py3.10.egg-info/PKG-INFO
 /home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template/example_nav_to_pose
-/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template/example_nav_to_pose1 = assignment_template.example_nav_to_pose1:mainobject_detector
+/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template/object_detector
+/home/amd/src/ros2_ws/src/Limo/install/assignment_template/lib/assignment_template/report

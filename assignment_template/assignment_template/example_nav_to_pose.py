@@ -162,19 +162,21 @@ class CostmapCallback(Node):
         try:
             costmap_in_base_link = self.tf_buffer.transform(msg, 'base_link', timeout=rclpy.time.Duration(1))
             # Process the costmap data here (e.g., analyze obstacles)
-            velocity_scale = self.calculate_velocity_scale(costmap_in_base_link)
+            velocity_scale = self.velocity_scale(costmap_in_base_link)
         
             # Set the robot's velocity based on the calculated scale
             self.adjust_robot_velocity(velocity_scale)
                 
         except Exception as e:
             self.get_logger().error(f"Costmap callback error: {str(e)}")
+    
+    
     def velocity_scale(self,costmap):
         max_cost = self.get_max_cost_in_vicinity(costmap)
     
         # Define a scaling factor based on the maximum cost (adjust as needed)
-        max_cost_threshold = 50  # Adjust as needed
-        max_velocity_scale = 0.3  # Adjust as needed
+        max_cost_threshold = 40  #
+        max_velocity_scale = 0.1  #
             
             # Calculate the velocity scale
         velocity_scale = max(1.0 - max_cost / max_cost_threshold, max_velocity_scale)
@@ -182,9 +184,9 @@ class CostmapCallback(Node):
         return velocity_scale
     def get_max_cost_in_vicinity(self, costmap):
     # Define the region around the robot to consider
-        robot_x = 0  # Replace with the actual robot's x position
-        robot_y = 0  # Replace with the actual robot's y position
-        vicinity_radius = 1.0  # Define the radius (adjust as needed)
+        robot_x = 0  
+        robot_y = 0 
+        vicinity_radius = 0.8  # Define the radius (adjust as needed)
 
         # Calculate the grid indices of the robot's position in the costmap
         robot_x_index = int((robot_x - costmap.info.origin.position.x) / costmap.info.resolution)

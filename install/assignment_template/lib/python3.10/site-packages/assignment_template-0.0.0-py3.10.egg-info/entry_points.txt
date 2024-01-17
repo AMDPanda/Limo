@@ -1,4 +1,5 @@
 [console_scripts]
 example_nav_to_pose = assignment_template.example_nav_to_pose:main
-example_nav_to_pose1 = assignment_template.example_nav_to_pose1:mainobject_detector = assignment_template.object_detector:main
+object_detector = assignment_template.object_detector:main
+report = assignment_template.report:main
 

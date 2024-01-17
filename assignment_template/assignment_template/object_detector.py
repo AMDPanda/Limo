@@ -1,4 +1,5 @@
 # Python libs
+from operator import ne
 from stringprep import in_table_c22
 from traceback import print_stack
 import rclpy
@@ -127,10 +128,10 @@ class ObjectDetector(Node):
                     # continue
                 # compare the two diagno(potholes close to similar diagnogal len)
                 x, y, w, h = cv2.boundingRect(contour)
-                if 4>np.abs(x-w)/np.abs(y-h)>0.25 :
+                if 3>np.abs(w)/np.abs(h)>0.3 :
                     new_contours.append(contour)
                     # Visualize the contour
-                    cv2.drawContours(image_color, [contour], -1, (0, 255, 0), 2)
+                    # cv2.drawContours(image_color, [contour], -1, (0, 255, 0), 2)
 
             # Show the output image
             cv2.imshow('Detected Potholes', image_color)
@@ -145,13 +146,14 @@ class ObjectDetector(Node):
         print('Number of contours found:', len(contours))
         image_color = self.bridge.imgmsg_to_cv2(data, "bgr8")
         image_depth = self.bridge.imgmsg_to_cv2(self.image_depth_ros,"32FC1") 
+        new_contours = []
         for contour in contours:
             
             area = cv2.contourArea(contour) 
             print('area', area)
             # Calculate contour area and ignore small areas
-            # if cv2.contourArea(contour) < 10:  # The area threshold will need to be adjusted
-            #     continue
+            if cv2.contourArea(contour) < 500:  # The area threshold will need to be adjusted
+                 continue
             x,y,h,w = cv2.boundingRect(contour)
 
             # calculate moments of the binar
@@ -175,13 +177,17 @@ class ObjectDetector(Node):
                  depth_y = image_depth.shape[0]-1
 
             depth_value = image_depth[depth_y,depth_x] # you might need to do some boundary checking first!
-            area_scaled = area*depth_value**2
+            fx = self.camera_model.fx()  # Focal length in x
+            fy = self.camera_model.fy() 
+            real_width = (w * depth_value) 
+            real_height = (h * depth_value) 
+            real_area = real_width * real_height
+            print('area_scaled',real_area) 
 
-            print('area_scaled',area_scaled) 
-
-            if depth_value < 0.15 or depth_value > 0.8:
+            if depth_value < 0.0 or depth_value > 1:
                 continue 
-            cv2.drawContours(image_color, contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
+            new_contours.append(contour)
+            cv2.drawContours(image_color, new_contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
             cv2.imshow('Potholes_pink', image_color)
             # print('image coords: ', image_coords)
             # print('depth coords: ', depth_coords)
@@ -213,16 +219,18 @@ class ObjectDetector(Node):
                 self.get_logger().error(f"Failed to transform pose: {e}")
                 return
             p_exist = self.potholes_rviz.markers.copy()
-            for m in p_exist:
-                if np.abs(p_camera.position.x - m.pose.position.x)< 0.17 and np.abs(p_camera.position.y - m.pose.position.y)< 0.15:
-                    print('repeated')
+            for i, m in enumerate(p_exist):
+                if np.abs(p_camera.position.x - m.pose.position.x)< 0.1 and np.abs(p_camera.position.y - m.pose.position.y)< 0.1:
+                    self.potholes_rviz.markers[i].ns = str(real_area)
+                    
+                    print('repeated',self.potholes_rviz.markers[i].ns)
                     return
                 
             # if not aleady published add to the array
             pothole_marker = Marker()
             pothole_marker.header.frame_id = "map"  # Use the correct frame_id here
             pothole_marker.header.stamp = self.get_clock().now().to_msg()
-            pothole_marker.ns = str(area_scaled)
+            pothole_marker.ns = str(real_area)
             pothole_marker.id = self.id
             pothole_marker.type = Marker.SPHERE  # Use SPHERE_LIST for multiple points
             pothole_marker.action = 0

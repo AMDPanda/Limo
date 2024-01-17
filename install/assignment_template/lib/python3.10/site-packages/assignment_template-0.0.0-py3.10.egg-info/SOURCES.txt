@@ -12,6 +12,7 @@ assignment_template/__init__.py
 assignment_template/example_nav_to_pose.py
 assignment_template/example_nav_to_pose1.py
 assignment_template/object_detector.py
+assignment_template/report.py
 resource/assignment_template
 test/test_copyright.py
 test/test_flake8.py
