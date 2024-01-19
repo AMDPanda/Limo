@@ -117,7 +117,7 @@ class ObjectDetector(Node):
             # Filter and analyze contours
             for contour in contours:
                 
-                if cv2.contourArea(contour) < 500:  # The area threshold may need tuning
+                if cv2.contourArea(contour) < 300:  # The area threshold may need tuning
                     
                     continue
                 peri = cv2.arcLength(contour, True)
@@ -128,7 +128,7 @@ class ObjectDetector(Node):
                     # continue
                 # compare the two diagno(potholes close to similar diagnogal len)
                 x, y, w, h = cv2.boundingRect(contour)
-                if 3>np.abs(w)/np.abs(h)>0.3 :
+                if 5>np.abs(w)/np.abs(h)>0.2 :
                     new_contours.append(contour)
                     # Visualize the contour
                     # cv2.drawContours(image_color, [contour], -1, (0, 255, 0), 2)
@@ -187,7 +187,7 @@ class ObjectDetector(Node):
             if depth_value < 0.0 or depth_value > 1:
                 continue 
             new_contours.append(contour)
-            cv2.drawContours(image_color, new_contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
+            cv2.drawContours(image_color, contours, -1, (0,255,0), 3) # To visualize the pothole in the robot image
             cv2.imshow('Potholes_pink', image_color)
             # print('image coords: ', image_coords)
             # print('depth coords: ', depth_coords)
@@ -220,8 +220,8 @@ class ObjectDetector(Node):
                 return
             p_exist = self.potholes_rviz.markers.copy()
             for i, m in enumerate(p_exist):
-                if np.abs(p_camera.position.x - m.pose.position.x)< 0.1 and np.abs(p_camera.position.y - m.pose.position.y)< 0.1:
-                    self.potholes_rviz.markers[i].ns = str(real_area)
+                if np.abs(p_camera.position.x - m.pose.position.x)< 0.15 and np.abs(p_camera.position.y - m.pose.position.y)< 0.15:
+                    self.potholes_rviz.markers[i].ns = str((float(self.potholes_rviz.markers[i].ns) +real_area)/2)
                     
                     print('repeated',self.potholes_rviz.markers[i].ns)
                     return
